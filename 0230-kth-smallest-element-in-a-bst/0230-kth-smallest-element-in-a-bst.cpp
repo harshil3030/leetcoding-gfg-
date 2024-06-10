@@ -15,15 +15,12 @@ public:
     
     void inorder (TreeNode* root, int k, int& curr) {
         if (!root) return;
-        
         if (root -> left) inorder(root -> left, k, curr);
-        
         curr++;
         if (curr == k) {
             mn = root -> val;
             return;
         }
-        
         if (root -> right) inorder(root -> right, k, curr);
     }
     

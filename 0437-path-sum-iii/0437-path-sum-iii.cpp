@@ -30,12 +30,44 @@ public:
         fun(root -> right, target, tmp);
     }
      
+    void secondway(TreeNode* root, int target, long long curr, map<long long, int> mp) {
+        if (!root) return;
+        curr += root -> val;
+        
+        cnt += mp[{curr - target}];
+        mp[curr]++;
+        
+        secondway(root -> left, target, curr, mp);
+        secondway(root -> right, target, curr, mp);
+        
+    }
     
     int pathSum(TreeNode* root, int targetSum) {
-        vector<long long> tmp;
-        fun(root, targetSum, tmp);
+        // vector<long long> tmp;
+        // fun(root, targetSum, tmp);
+        map<long long ,int> mp;
+        mp[0] = 1;
+        secondway(root, targetSum,0,mp);
+        
         return cnt;
     }
     
+    /*
+        yup this works but there is one more way using the map it may require bit less space 
+        
+        curr += root -> val
+        mp[curr - tar] != mp.end
+            how many of them have to provide
+        
+        mp[curr]++;
+        
+        left
+        right
+        
+        mp[curr]--;
+        
+        
+        
+    */
     
 };

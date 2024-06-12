@@ -30,7 +30,7 @@ public:
         fun(root -> right, target, tmp);
     }
      
-    void secondway(TreeNode* root, int target, long long curr, map<long long, int> mp) {
+    void secondway(TreeNode* root, int target, long long curr, map<long long, int> &mp) {
         if (!root) return;
         curr += root -> val;
         
@@ -39,6 +39,8 @@ public:
         
         secondway(root -> left, target, curr, mp);
         secondway(root -> right, target, curr, mp);
+        
+        mp[curr]--;
         
     }
     

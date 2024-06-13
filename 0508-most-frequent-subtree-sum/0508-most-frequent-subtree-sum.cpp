@@ -11,13 +11,13 @@
  */
 class Solution {
 public:
-    map<int, int> mp;
+
     
-    int fun(TreeNode* root) {
+    int fun(TreeNode* root, map<int, int> &mp) {
         if (!root) return 0;
          
-        int leftsum = fun(root -> left);
-        int rightsum = fun(root -> right);
+        int leftsum = fun(root -> left, mp);
+        int rightsum = fun(root -> right, mp);
         
         mp[root -> val + leftsum + rightsum]++;
         return root -> val + leftsum + rightsum;
@@ -25,7 +25,8 @@ public:
     
     
     vector<int> findFrequentTreeSum(TreeNode* root) {
-        int tmp = fun(root);    
+        map<int, int> mp;
+        int tmp = fun(root, mp);    
         
         int mx = 0;
         for(auto &x : mp) {

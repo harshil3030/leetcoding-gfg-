@@ -2,9 +2,8 @@ class Solution {
 public:
     void fun(vector<string> &ans, int &n, int level, string tmp) {
         if (level == n) {
-         
           ans.push_back(tmp);
-            return;
+          return;
         }
         tmp += '0';
         if ((tmp.size() > 1 && tmp[tmp.size()-2] != '0') || tmp.size() == 1) {

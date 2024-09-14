@@ -2,47 +2,50 @@ class Solution {
 public:
     int maxPathLength(vector<vector<int>>& c, int k) {
         int n = c.size();
-        vector<int> find = c[k];
+        int m = c[0].size();
         
-        // Sort `c` based on the custom comparator
-        auto comp = [](const vector<int>& v1, const vector<int>& v2) {
+        auto comp = [&](vector<int> &v1, vector<int> &v2) {
             if (v1[0] == v2[0]) return v1[1] > v2[1];
             return v1[0] < v2[0];
         };
+        vector<int> find = c[k];
         sort(c.begin(), c.end(), comp);
         
-        // Vectors to hold the partitioned elements
-        vector<int> ff, ss;
-        
-        // Partition the sorted vector based on conditions
-        for (const auto& vec : c) {
-            if (vec[0] < find[0] && vec[1] < find[1]) {
-                ff.push_back(vec[1]);
+        int at = 0; 
+        vector<int> ff,ss;
+        for(int i = 0; i < n; i++) {
+            if (c[i][0] < find[0] && c[i][1] < find[1]) {
+                ff.push_back(c[i][1]);
             } 
-            if (vec[0] > find[0] && vec[1] > find[1]) {
-                ss.push_back(vec[1]);
+            if (c[i][0] > find[0] && c[i][1] > find[1]) {
+                ss.push_back(c[i][1]);
             }
         }
         
-        // Function to calculate LIS
-        auto calculateLIS = [](const vector<int>& arr) {
-            vector<int> lis;
-            for (int num : arr) {
-                if (lis.empty() || lis.back() < num) {
-                    lis.push_back(num);
-                } else {
-                    auto it = lower_bound(lis.begin(), lis.end(), num);
-                    *it = num;  // Replace the first element greater than or equal to num
-                }
+        
+        vector<int> left,right;
+        
+        for(int j = 0; j < ff.size(); j++) {
+            if (left.empty() || left.back() < ff[j]) {
+                left.push_back(ff[j]);
+            } else if (ff[j] < left.back()) {
+                auto it = lower_bound(left.begin(), left.end(), ff[j]);
+                *it = ff[j];
             }
-            return lis.size();
-        };
+        }
         
-        // Calculate LIS for the partitions
-        int leftLIS = calculateLIS(ff);
-        int rightLIS = calculateLIS(ss);
+        for(int j = 0; j < ss.size(); j++) {
+            if (right.empty() || right.back() < ss[j]) {
+                right.push_back(ss[j]);
+            } else if (ss[j] < right.back()) {
+                auto it = lower_bound(right.begin(), right.end(), ss[j]);
+                *it = ss[j];
+            }
+        }
         
-        // The total path length is 1 (the find point itself) plus left and right LIS
-        return 1 + leftLIS + rightLIS;
+        
+        return 1 + left.size() + right.size();
+    
+    
     }
 };

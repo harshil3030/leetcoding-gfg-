@@ -23,8 +23,17 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 |  |
 | ------- |
 | [0410-split-array-largest-sum](https://github.com/itsme3030/leetcode/tree/master/0410-split-array-largest-sum) |
+| [3195-separate-black-and-white-balls](https://github.com/itsme3030/leetcode/tree/master/3195-separate-black-and-white-balls) |
 ## Prefix Sum
 |  |
 | ------- |
 | [0410-split-array-largest-sum](https://github.com/itsme3030/leetcode/tree/master/0410-split-array-largest-sum) |
+## Two Pointers
+|  |
+| ------- |
+| [3195-separate-black-and-white-balls](https://github.com/itsme3030/leetcode/tree/master/3195-separate-black-and-white-balls) |
+## String
+|  |
+| ------- |
+| [3195-separate-black-and-white-balls](https://github.com/itsme3030/leetcode/tree/master/3195-separate-black-and-white-balls) |
 <!---LeetCode Topics End-->

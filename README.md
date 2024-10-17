@@ -23,6 +23,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 |  |
 | ------- |
 | [0410-split-array-largest-sum](https://github.com/itsme3030/leetcode/tree/master/0410-split-array-largest-sum) |
+| [0670-maximum-swap](https://github.com/itsme3030/leetcode/tree/master/0670-maximum-swap) |
 | [3195-separate-black-and-white-balls](https://github.com/itsme3030/leetcode/tree/master/3195-separate-black-and-white-balls) |
 ## Prefix Sum
 |  |
@@ -36,4 +37,8 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 |  |
 | ------- |
 | [3195-separate-black-and-white-balls](https://github.com/itsme3030/leetcode/tree/master/3195-separate-black-and-white-balls) |
+## Math
+|  |
+| ------- |
+| [0670-maximum-swap](https://github.com/itsme3030/leetcode/tree/master/0670-maximum-swap) |
 <!---LeetCode Topics End-->
